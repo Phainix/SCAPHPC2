@@ -1,5 +1,7 @@
 <?php
 
+namespace Entity;
+
 class Seller {
     public $name;
     public $score;
