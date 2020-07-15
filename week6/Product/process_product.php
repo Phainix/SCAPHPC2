@@ -14,12 +14,41 @@ try {
         throw new \Exception("Invalid request format, please try again");
     }
 
+    if(!isset($_FILES['picture'])) {
+        throw new \Exception("No picture uploaded");
+    }
+
+    if($_FILES['picture']['error'] != 0) {
+        throw new \Exception("Please select a picture and try again");
+    }
+
+    if(!file_exists($_FILES['picture']['tmp_name'])) {
+        throw new \Exception("Please select a picture and try again");
+    }
+
+    if($_FILES['picture']['size'] > 2097152){
+        throw new \Exception("File size must be less than 2 MB");
+    }
+
+    $uploaded_file = pathinfo($_FILES['picture']['name']);
+    $valid_extensions = array('jpg', 'jpeg', 'png');
+
+    if(!in_array($uploaded_file['extension'], $valid_extensions)) {
+        throw new \Exception("Please select a valid picture");
+    }
+
+    $dest = "pictures/" . $_FILES['picture']['name'];
+
+    if (!move_uploaded_file($_FILES['picture']['tmp_name'], $dest)) {
+        echo 'File upload failed';
+    }
+
     $name = isset($_POST['name']) ? Form::sanitise($_POST['name']) : null;
     $description = isset($_POST['description']) ? Form::sanitise($_POST['description']) : null;
     $price = isset($_POST['price']) ? Form::sanitise($_POST['price']) : null;
     $brand = isset($_POST['brand']) ? Form::sanitise($_POST['brand']) : null;
     $color = isset($_POST['color']) ? Form::sanitise($_POST['color']) : null;
-    $picture = isset($_POST['picture']) ? Form::sanitise($_POST['picture']) : null;
+    $picture = $dest;
     $seller = isset($_POST['seller']) ? Form::sanitise($_POST['seller']) : null;
     $category = isset($_POST['category']) ? Form::sanitise($_POST['category']) : null;
     $rating = 0;
@@ -49,12 +78,6 @@ try {
     if($colorError != null) {
         throw new \Exception($colorError);
     }
-
-    // TODO: Validate picture
-    // $pictureError = Validator::validateText($picture, 30);
-    // if($pictureError != null) {
-    //     throw new \Exception($pictureError);
-    // }
 
     $sellerError = Validator::validateText('Seller', $seller, 30);
     // TODO: Check if seller exists

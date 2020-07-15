@@ -15,6 +15,9 @@ class Validator {
         if(empty($text)) {
             return "$field must contain a valid value";
         }
+        if(is_numeric($text)) {
+            return "$field must not contain numbers";
+        }
         if(strlen($text) > $max) {
             return "$field must contain $max characters or less";
         }
