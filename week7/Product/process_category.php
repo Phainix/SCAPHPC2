@@ -27,11 +27,14 @@ try {
         throw new \Exception($nameError);
     }
 
-
     $category = new Entity\Category($name);
+    $result = Controller\Category::create($category);
 
-    var_dump($category);
-
+    if($result !== true) {
+        throw new \Exception("Category creation failed");
+    } 
+    $message = "Category created successfully";
+    echo $message;
 } catch (\Exception $e) {
     echo $e->getMessage();
     exit;
