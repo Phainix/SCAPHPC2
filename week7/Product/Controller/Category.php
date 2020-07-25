@@ -24,11 +24,36 @@ class Category {
         return $db->result;
     }
 
-    public static function get() {
+    public static function getAll() {
         $db = new Database();
         $db->connect();
 
         $categories = $db->select("SELECT * FROM CATEGORIES ORDER BY ID DESC");
         return $categories;
+    }
+
+    public static function get($category_id) {
+        $db = new Database();
+        $db->connect();
+
+        $db->prepare("SELECT * FROM CATEGORIES WHERE ID = ?");
+        $db->result = $db->stmt->bind_param("i", $category_id);
+        $db->excecute();
+        $result = $db->stmt->get_result();
+
+        $category = $result->fetch_assoc();
+
+        return $category;
+    }
+
+    public static function edit(\Entity\Category $category) {
+        $db = new Database();
+        $db->connect();
+
+        $db->prepare("UPDATE CATEGORIES SET name = ?, status = ?, date_updated = current_timestamp WHERE ID = ?");
+        $db->result = $db->stmt->bind_param("sii", $category->name, $category->status, $category->id);
+        $db->excecute();
+        
+        return $db->result;
     }
 }

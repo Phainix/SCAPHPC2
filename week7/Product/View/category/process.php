@@ -1,10 +1,4 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: HP
- * Date: 15-Jul-20
- * Time: 11:03 AM
- */
 
 include_once '../../autoload.php';
 

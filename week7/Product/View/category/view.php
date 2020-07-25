@@ -6,7 +6,7 @@ $categories = array();
 $error = false;
 
 try {
-    $categories = Controller\Category::get();
+    $categories = Controller\Category::getAll();
 } catch (\Exception $e) {
     $error = $e->getMessage();
 }
@@ -28,6 +28,7 @@ try {
                 <th>Name</th>
                 <th>Status</th>
                 <th>Date</th>
+                <th></th>
             </tr>
         </thead>
         <tbody>
@@ -37,6 +38,7 @@ try {
                     <td><?= $category['name']?></td>
                     <td><?= $category['status']?></td>
                     <td><?= $category['date_created']?></td>
+                    <td><a href="edit.php?category_id=<?= $category['id']?>"><button>Edit</button></a></td>
                 </tr>
             <?php endforeach ?>
         </tbody>
