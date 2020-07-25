@@ -9,7 +9,7 @@
 
 <body>
 
-    <form action="process_product.php" method="post" novalidate enctype="multipart/form-data">
+    <form action="process.php" method="post" novalidate enctype="multipart/form-data">
         <div>
             <label for="name">Name</label>
             <input type="text" name="name" id="name">

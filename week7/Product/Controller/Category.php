@@ -23,4 +23,12 @@ class Category {
         
         return $db->result;
     }
+
+    public static function get() {
+        $db = new Database();
+        $db->connect();
+
+        $categories = $db->select("SELECT * FROM CATEGORIES ORDER BY ID DESC");
+        return $categories;
+    }
 }

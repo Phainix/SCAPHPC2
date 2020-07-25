@@ -41,4 +41,21 @@ class Database {
         }
     }
 
+    public function select($sql) {
+        $this->prepare("SELECT * FROM CATEGORIES ORDER BY ID DESC");
+
+        $this->result = $this->stmt->execute();
+        if($this->result == false) {
+            throw new \Exception($this->stmt->error);
+        }
+
+        $this->result = $this->stmt->get_result();
+
+        $all_rows = array();
+        while($row = $this->result->fetch_assoc()) {
+            array_push($all_rows, $row);
+        }
+        return $all_rows;
+    }
+
 }

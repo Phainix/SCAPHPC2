@@ -3,10 +3,10 @@
  * Created by PhpStorm.
  * User: HP
  * Date: 15-Jul-20
- * Time: 10:51 AM
+ * Time: 11:03 AM
  */
 
-include_once 'autoload.php';
+include_once '../../autoload.php';
 
 use \Library\Form as Form;
 use \Library\Validator as Validator;
@@ -16,28 +16,25 @@ try {
         throw new \Exception("Invalid request format, please try again");
     }
 
-    if (!isset($_POST['create_brand']) && $error == null) {
+    if (!isset($_POST['create_category']) && $error == null) {
         throw new \Exception("Invalid request format, please try again");
     }
 
     $name = isset($_POST['name']) ? Form::sanitise($_POST['name']) : null;
-    $category = isset($_POST['category']) ? Form::sanitise($_POST['category']) : null;
 
     $nameError = Validator::validateText('Name', $name, 30);
     if ($nameError != null) {
         throw new \Exception($nameError);
     }
 
-    $categoryError = Validator::validateText('Category', $category, 30);
-    // TODO: Check if category exists
-    if ($categoryError != null) {
-        throw new \Exception($categoryError);
-    }
+    $category = new Entity\Category($name);
+    $result = Controller\Category::create($category);
 
-    $brand = new Entity\Brand($name, $category);
-
-    var_dump($brand);
-
+    if($result !== true) {
+        throw new \Exception("Category creation failed");
+    } 
+    $message = "Category created successfully";
+    echo $message;
 } catch (\Exception $e) {
     echo $e->getMessage();
     exit;

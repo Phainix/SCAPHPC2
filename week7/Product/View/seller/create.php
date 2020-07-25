@@ -6,7 +6,7 @@
     <title>Create Seller</title>
 </head>
 <body>
-    <form action="process_seller.php" method="post" novalidate>
+    <form action="process.php" method="post" novalidate>
         <div>
             <label for="name">Name</label>
             <input type="text" name="name" id="name">
