@@ -1,10 +1,4 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: HP
- * Date: 15-Jul-20
- * Time: 10:51 AM
- */
 
 include_once '../../autoload.php';
 
@@ -16,16 +10,23 @@ try {
         throw new \Exception("Invalid request format, please try again");
     }
 
-    if (!isset($_POST['create_brand']) && $error == null) {
+    if (!isset($_POST['edit_brand']) && $error == null) {
         throw new \Exception("Invalid request format, please try again");
     }
 
     $name = isset($_POST['name']) ? Form::sanitise($_POST['name']) : null;
+    $status = isset($_POST['status']) ? Form::sanitise($_POST['status']) : null;
     $category = isset($_POST['category']) ? Form::sanitise($_POST['category']) : null;
+    $brand_id = isset($_POST['brand_id']) ? Form::sanitise($_POST['brand_id']) : null;
 
     $nameError = Validator::validateText('Name', $name, 30);
     if ($nameError != null) {
         throw new \Exception($nameError);
+    }
+
+    $statusError = Validator::validateNumber('Status', $status);
+    if ($statusError != null) {
+        throw new \Exception($statusError);
     }
 
     $categoryError = Validator::validateNumber('Category', $category);
@@ -33,15 +34,22 @@ try {
         throw new \Exception($categoryError);
     }
 
+    $brandError = Validator::validateNumber('Brand', $brand_id);
+    if ($brandError != null) {
+        throw new \Exception($brandError);
+    }
+
     $brand = new Entity\Brand($name, $category);
-    $result = Controller\Brand::create($brand);
+    $brand->status = $status;
+    $brand->id = $brand_id;
+    
+    $result = Controller\Brand::edit($brand);
 
     if($result !== true) {
-        throw new \Exception("Brand creation failed");
+        throw new \Exception("Brand edit failed");
     } 
-    $message = "Brand created successfully";
+    $message = "Brand edited successfully";
     echo $message;
-
 } catch (\Exception $e) {
     echo $e->getMessage();
     exit;

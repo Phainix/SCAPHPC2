@@ -4,11 +4,11 @@ namespace Entity;
 
 class Brand {
     public $name;
-    public $categories;
+    public $category;
 
-    public function __construct($name, $categories) {
+    public function __construct($name, $category) {
         $this->name = $name;
-        $this->categories = $categories;
+        $this->category = $category;
     }
 
     public function getName() {
@@ -16,14 +16,14 @@ class Brand {
     }
 
     public function getCategories() {
-        return $this->categories;
+        return $this->category;
     }
 
     public function setName($name) {
         $this->name = $name;
     }
 
-    public function setCategories($categories) {
-        $this->categories = $categories;
+    public function setCategories($category) {
+        $this->category = $category;
     }
 }

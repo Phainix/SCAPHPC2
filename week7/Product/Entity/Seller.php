@@ -8,7 +8,7 @@ class Seller {
     public $country;
     public $followers;
 
-    public function __construct($name, $score, $country, $followers) {
+    public function __construct($name, $country, $score = null, $followers = null) {
         $this->name = $name;
         $this->score = $score;
         $this->country = $country;

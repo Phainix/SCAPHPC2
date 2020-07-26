@@ -42,7 +42,7 @@ class Database {
     }
 
     public function select($sql) {
-        $this->prepare("SELECT * FROM CATEGORIES ORDER BY ID DESC");
+        $this->prepare($sql);
 
         $this->result = $this->stmt->execute();
         if($this->result == false) {

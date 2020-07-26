@@ -16,22 +16,14 @@
             <label for="country">Country</label>
             <select name="country" id="country">
                 <option value="">Select a country</option>
-                <option value="2">Nigeria</option>
-                <option value="4">Ghana</option>
-                <option value="5">Malawi</option>
-                <option value="6">South Africa</option>
-                <option value="7">China</option>
-                <option value="8">India</option>
-                <option value="9">Kenya</option>
+                <option value="Nigeria">Nigeria</option>
+                <option value="Ghana">Ghana</option>
+                <option value="Malawi">Malawi</option>
+                <option value="South Africa">South Africa</option>
+                <option value="China">China</option>
+                <option value="India">India</option>
+                <option value="Kenya">Kenya</option>
             </select>
-        </div>
-        <div>
-            <label for="color">Score</label>
-            <input type="number" name="score" id="score">
-        </div>
-        <div>
-            <label for="follower">Followers</label>
-            <input type="text" name="follower" id="follower">
         </div>
         <div>
             <input type="submit" value="Create" name="create_seller">
