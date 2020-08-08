@@ -1,0 +1,127 @@
+html {
+    font-family: 'Quicksand', sans-serif;
+}
+body {
+    margin: 0rem;
+    font-size: 1rem;
+}
+header {
+    width: 100%;
+    padding: 1rem;
+    display: flex;
+    justify-content: space-between;
+}
+*, *::before, *::after {
+    box-sizing: border-box;
+}
+a {
+    text-decoration: none;
+    color: initial;
+}
+p {
+    margin: 0;
+}
+.brand {
+    font-size: 1.4rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 600;
+    color: #2b8de6;
+}
+.brand-img {
+    width: 2rem;
+    margin-right: .6rem;
+}
+ul {
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+    display: flex;
+    align-items: center;
+}
+.header-menu li {
+    padding-left: 1rem;
+}
+.header-menu li a {
+    color: #2b8de6;
+}
+.header-menu li a:hover, .header-menu li.active a {
+    color: #fbac4a;
+}
+footer {
+    background-color: #fbac4a;
+    color: white;
+    padding: 1rem;
+    text-align: center;
+}
+.main {
+    padding: 1rem;
+}
+.category-list, .brand-list, .product-list, .seller-list {
+    display: flex;
+}
+.list-item {
+    flex:  0 0 19%;
+    margin-right: 1%;
+    padding: 1rem;
+    border-radius: .3rem;
+    text-align: center;
+    box-shadow: 1px 1px 4px #67676745;
+}
+.category-list .list-item {
+    background-color: #2b8de6;
+    color: white;
+}
+.brand-list .list-item {
+    background-color: #fbac4a;
+    color: white;
+}
+span.tag {
+    padding: .2rem .4rem;
+    display: inline-flex;
+    background: #0000002e;
+    font-size: 70%;
+    border-radius: .2rem;
+}
+.seller-list .list-item {
+    background-color: #ed5481;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.info {
+    display: flex;
+    justify-content: space-between;
+    font-size: 70%;
+    width: 100%;
+}
+.btn {
+    background-color: #fbab4a;
+    padding: .3rem .8rem;
+    color: white;
+    font-size: 70%;
+    border-radius: .4rem;
+    display: flex;
+    align-items: center;
+}
+.item-action {
+    margin-top: .4rem;
+    align-self: flex-end;
+}
+img.icon {
+    width: 1rem;
+    height: 1rem;
+    margin-left: .4rem;
+}
+.product-img {
+    width: 100%;
+    height: 10rem;
+    object-fit: contain;
+}
+.product-item  {
+    font-size: 70%;
+    display: flex;
+    flex-direction: column;
+}
