@@ -34,4 +34,11 @@ class Validator {
         return null;
     }
 
+    public static function validateValue($field, $value) {
+        if(empty($value)) {
+            return "$field must contain a valid value";
+        }
+        return null;
+    }
+
 }

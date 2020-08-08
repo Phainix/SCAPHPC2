@@ -6,11 +6,11 @@ use \Library\Form as Form;
 use \Library\Validator as Validator;
 
 try {
-    if ($_SERVER["REQUEST_METHOD"] != "POST") {
+    if($_SERVER["REQUEST_METHOD"] != "POST") {
         throw new \Exception("Invalid request format, please try again");
     }
 
-    if (!isset($_POST['edit_brand']) && $error == null) {
+    if(!isset($_POST['edit_brand']) && $error == null) {
         throw new \Exception("Invalid request format, please try again");
     }
 
