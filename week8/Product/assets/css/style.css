@@ -58,6 +58,12 @@ footer {
 .main {
     padding: 1rem;
 }
+.split-half {
+    display: flex;
+}
+.split-half > * {
+    flex: 0 0 50%;
+}
 .category-list, .brand-list, .product-list, .seller-list {
     display: flex;
 }
@@ -128,4 +134,18 @@ img.icon {
     font-size: 70%;
     display: flex;
     flex-direction: column;
+}
+.alert {
+    /* width: 100%; */
+    margin: 1rem;
+    padding: 1rem;
+    background-color: #fbab4a;
+    border-radius: .4rem;
+    color: white;
+}
+.alert-danger {
+    background-color: #ff5d5d;
+}
+.alert-success {
+    background-color: #36ca36;
 }

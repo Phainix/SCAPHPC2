@@ -24,63 +24,13 @@ try {
 <body>
     <?php include_once('components/header.php') ?>
     <div class="main">
-        <section id="categories">
-            <h2 class="section-title">Categories</h2>
-            <div class="category-list">
-                <?php foreach($categories as $category): ?>
-                    <a class="list-item" href="products.php?category_id=<?= $category['id']?>">
-                        <span><?= $category['name']?></span>
-                    </a>
-                <?php endforeach ?>
-            </div>
-        </section>
+        <?php include_once('components/categories.php') ?>
 
-        <section id="brands">
-            <h2 class="section-title">Brands</h2>
-            <div class="brand-list">
-                <?php foreach($brands as $brand): ?>
-                    <a class="list-item" href="products.php?brand_id=<?= $brand['id']?>">
-                        <p><?= $brand['name']?></p>
-                        <span class="tag"><?= $brand['category_name']?></span>
-                    </a>
-                <?php endforeach ?>
-            </div>
-        </section>
+        <?php include_once('components/brands.php') ?>
 
-        <section id="sellers">
-            <h2 class="section-title">Sellers</h2>
-            <div class="seller-list">
-                <?php foreach($sellers as $seller): ?>
-                    <div class="list-item">
-                        <p><a href="products.php?seller_id=<?= $seller['id']?>"><?= $seller['name']?></a></p>
-                        <span class="tag"><?= $seller['country']?></span>
-                        <div class="info">
-                            <span><?= $seller['score']?>% seller score</span>
-                            <span><?= $seller['followers']?> followers</span>
-                        </div>
-                        <a class="btn item-action" href="javascript:void(0)">Follow <img src="assets/icons/plus.svg" alt="Follow" class="icon"> </a>
-                    </div>
-                <?php endforeach ?>
-            </div>
-        </section>
+        <?php include_once('components/sellers.php') ?>
 
-        <section id="products">
-            <h2 class="section-title">Products</h2>
-            <div class="product-list">
-                <?php foreach($products as $product): ?>
-                    <div class="list-item product-item">
-                        <img src="assets/<?= $product['picture']?>" alt="<?= $product['name']?> Image" class="product-img">
-                        <span><?= $product['name']?></span>
-                        <span>₦<?= number_format($product['price']) ?></span>
-                        <span>
-                            <?php for($i = 1; $i <= 5; $i++): ?>
-                                <?= $i <= $product['rating'] ? '<img src="assets/icons/star.svg" alt="Rating" class="icon">' : '<img src="assets/icons/star-grey.svg" alt="Rating" class="icon">' ?>
-                            <?php endfor ?>
-                        </span>
-                    </div>
-                <?php endforeach ?>
-            </div>
-        </section>
+        <?php include_once('components/products.php') ?>
     </div>
     <?php include_once('components/footer.php') ?>
 </body>

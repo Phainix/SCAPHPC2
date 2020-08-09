@@ -21,17 +21,7 @@ try {
 <body>
     <?php include_once('components/header.php') ?>
     <div class="main">
-        <section id="brands">
-            <h2 class="section-title">Brands</h2>
-            <div class="brand-list">
-                <?php foreach($brands as $brand): ?>
-                    <div class="list-item">
-                        <p><?= $brand['name']?></p>
-                        <span class="tag"><?= $brand['category_name']?></span>
-                    </div>
-                <?php endforeach ?>
-            </div>
-        </section>
+        <?php include_once('components/brands.php') ?>
     </div>
     <?php include_once('components/footer.php') ?>
 </body>
