@@ -23,7 +23,7 @@ class User {
             return false;
         }
 
-        return new \Entity\User($user['id'], $user['username'], $user['email']);
+        return new \Entity\User($user['id'], $user['username'], $user['email'], $user['type'] == 1);
     }
 
     public static function register($email, $username, $password) {

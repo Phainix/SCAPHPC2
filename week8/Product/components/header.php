@@ -1,6 +1,5 @@
 <?php
 use \Entity\User;
-
 ?>
 <header>
     <a href="index.php" class="brand">
@@ -14,7 +13,8 @@ use \Entity\User;
         <li class="<?= $title == "Brands" ? 'active' : '' ?>"><a href="brands.php">Brands</a></li>
         <li class="<?= $title == "Categories" ? 'active' : '' ?>"><a href="categories.php">Categories</a></li>
         <?php if($_SESSION && isset($_SESSION['user']) && is_object($_SESSION['user'])) : ?>
-            <li class="<?= $title == "Account" ? 'active' : '' ?>"><a href="javascript:void(0)">Welcome <?= $_SESSION['user']->username ?> </a></li>
+            <li class="<?= $title == "Account" ? 'active' : '' ?>"><a href="<?= $_SESSION['user']->admin ? "admin.php" : "javascript:void(0)" ?>">Welcome <?= $_SESSION['user']->username ?> </a></li>
+            <li class="<?= $title == "Logout" ? 'active' : '' ?>"><a href="logout.php">Logout</a></li>
         <?php else : ?>
             <li class="<?= $title == "Login" ? 'active' : '' ?>"><a href="login.php">Login</a></li>
         <?php endif ?>
