@@ -5,10 +5,10 @@
     </a>
 
     <ul class="header-menu">
-        <li><a href="products.php">Products</a></li>
-        <li><a href="sellers.php">Sellers</a></li>
-        <li><a href="brands.php">Brands</a></li>
-        <li><a href="categories.php">Categories</a></li>
+        <li class="<?= $title == "Products" ? 'active' : '' ?>"><a href="products.php">Products</a></li>
+        <li class="<?= $title == "Sellers" ? 'active' : '' ?>"><a href="sellers.php">Sellers</a></li>
+        <li class="<?= $title == "Brands" ? 'active' : '' ?>"><a href="brands.php">Brands</a></li>
+        <li class="<?= $title == "Categories" ? 'active' : '' ?>"><a href="categories.php">Categories</a></li>
     </ul>
     
 </header>

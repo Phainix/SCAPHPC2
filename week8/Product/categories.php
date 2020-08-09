@@ -22,11 +22,14 @@ try {
     <?php include_once('components/header.php') ?>
     <div class="main">
         <section id="categories">
-            <?php foreach($categories as $category): ?>
-                <div>
-                    <span><?= $category['name']?></span>
-                </div>
-            <?php endforeach ?>
+            <h2 class="section-title">Categories</h2>
+            <div class="category-list">
+                <?php foreach($categories as $category): ?>
+                    <div class="list-item">
+                        <span><?= $category['name']?></span>
+                    </div>
+                <?php endforeach ?>
+            </div>
         </section>
     </div>
     <?php include_once('components/footer.php') ?>

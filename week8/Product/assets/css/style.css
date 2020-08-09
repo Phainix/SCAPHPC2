@@ -68,6 +68,7 @@ footer {
     border-radius: .3rem;
     text-align: center;
     box-shadow: 1px 1px 4px #67676745;
+    cursor: pointer;
 }
 .category-list .list-item {
     background-color: #2b8de6;
@@ -90,6 +91,9 @@ span.tag {
     display: flex;
     flex-direction: column;
     align-items: center;
+}
+.seller-list .list-item * {
+    color: white;
 }
 .info {
     display: flex;

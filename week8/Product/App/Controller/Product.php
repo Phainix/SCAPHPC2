@@ -24,11 +24,11 @@ class Product {
         return $db->result;
     }
 
-    public static function getAll() {
+    public static function getAll($where_clause = "") {
         $db = new Database();
         $db->connect();
 
-        $products = $db->select("SELECT PRODUCTS.*, CATEGORIES.NAME AS category_name, SELLERS.NAME AS seller_name, BRANDS.NAME AS brand_name FROM PRODUCTS JOIN CATEGORIES ON CATEGORIES.ID = PRODUCTS.CATEGORY_ID JOIN SELLERS ON SELLERS.ID = PRODUCTS.SELLER_ID JOIN BRANDS ON BRANDS.ID = PRODUCTS.BRAND_ID ORDER BY PRODUCTS.ID DESC");
+        $products = $db->select("SELECT PRODUCTS.*, CATEGORIES.NAME AS category_name, SELLERS.NAME AS seller_name, BRANDS.NAME AS brand_name FROM PRODUCTS JOIN CATEGORIES ON CATEGORIES.ID = PRODUCTS.CATEGORY_ID JOIN SELLERS ON SELLERS.ID = PRODUCTS.SELLER_ID JOIN BRANDS ON BRANDS.ID = PRODUCTS.BRAND_ID $where_clause ORDER BY PRODUCTS.ID DESC");
         return $products;
     }
 

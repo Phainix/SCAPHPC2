@@ -28,9 +28,9 @@ try {
             <h2 class="section-title">Categories</h2>
             <div class="category-list">
                 <?php foreach($categories as $category): ?>
-                    <div class="list-item">
+                    <a class="list-item" href="products.php?category_id=<?= $category['id']?>">
                         <span><?= $category['name']?></span>
-                    </div>
+                    </a>
                 <?php endforeach ?>
             </div>
         </section>
@@ -39,10 +39,10 @@ try {
             <h2 class="section-title">Brands</h2>
             <div class="brand-list">
                 <?php foreach($brands as $brand): ?>
-                    <div class="list-item">
+                    <a class="list-item" href="products.php?brand_id=<?= $brand['id']?>">
                         <p><?= $brand['name']?></p>
                         <span class="tag"><?= $brand['category_name']?></span>
-                    </div>
+                    </a>
                 <?php endforeach ?>
             </div>
         </section>
@@ -52,7 +52,7 @@ try {
             <div class="seller-list">
                 <?php foreach($sellers as $seller): ?>
                     <div class="list-item">
-                        <p><?= $seller['name']?></p>
+                        <p><a href="products.php?seller_id=<?= $seller['id']?>"><?= $seller['name']?></a></p>
                         <span class="tag"><?= $seller['country']?></span>
                         <div class="info">
                             <span><?= $seller['score']?>% seller score</span>
