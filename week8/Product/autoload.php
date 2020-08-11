@@ -6,3 +6,4 @@ spl_autoload_register(function ($class_name) {
 });
 
 session_start();
+define('BASE', __DIR__ . '/');

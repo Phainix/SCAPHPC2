@@ -149,3 +149,47 @@ img.icon {
 .alert-success {
     background-color: #36ca36;
 }
+
+
+.main-admin {
+    display: flex;
+}
+.sidebar {
+    flex: 0 0 10rem;
+}
+.sidebar {
+    flex: 0 0 10rem;
+    background: #fbab4a;
+    color: white;
+    padding-bottom: 1rem;
+}
+.sidebar * {
+    color: white;
+}
+.sidebar-menu {
+    display: flex;
+    flex-direction: column;
+    cursor: pointer;
+    padding: 1rem;
+    padding-bottom: 0rem;
+}
+.dropdown {
+    display: flex;
+    flex-direction: column;
+    /* position: absolute; */
+    max-height: 0;
+    overflow: hidden;
+    transition: all .6s ease-in-out;
+    font-size: 80%;
+    padding-left: 1rem;
+}
+.sidebar-menu:hover .dropdown {
+    max-height: 5rem;
+}
+.dropdown-item {
+    padding: .3rem;
+}
+.admin-container {
+    padding: 1rem;
+    flex: 1;
+}
